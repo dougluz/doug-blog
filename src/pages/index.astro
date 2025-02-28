@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
@@ -38,6 +39,7 @@ const work = await Promise.all(
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Analytics />
   <Container>
     <h4 class="animate text-lg font-semibold text-black dark:text-white">
       Hi, I'm Douglas Luz <span class="wave-animate text-xl">👋🏻</span>
@@ -74,12 +76,16 @@ const work = await Promise.all(
           <Link href="/blog"> See all posts </Link>
         </div>
         <ul class="flex flex-col gap-4">
-          {hasBlogPosts ? (
-            blog.map((post) => (
-              <li>
-                <ArrowCard entry={post} />
-              </li>
-            ))) : <li>No posts yet</li>
+          {
+            hasBlogPosts ? (
+              blog.map((post) => (
+                <li>
+                  <ArrowCard entry={post} />
+                </li>
+              ))
+            ) : (
+              <li>No posts yet</li>
+            )
           }
         </ul>
       </section>
@@ -119,13 +125,16 @@ const work = await Promise.all(
           <Link href="/projects"> See all projects </Link>
         </div>
         <ul class="flex flex-col gap-4">
-          {hasProjects ? (
-            projects.map((project) => (
-              <li>
-                <ArrowCard entry={project} />
-              </li>
-            ))
-          ) : <li>No projects yet</li>
+          {
+            hasProjects ? (
+              projects.map((project) => (
+                <li>
+                  <ArrowCard entry={project} />
+                </li>
+              ))
+            ) : (
+              <li>No projects yet</li>
+            )
           }
         </ul>
       </section>
