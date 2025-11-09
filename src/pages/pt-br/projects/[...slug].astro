@@ -1,0 +1,9 @@
+---
+import ProjectDetailsPage, { getStaticPaths } from "../../projects/[...slug].astro";
+
+export { getStaticPaths };
+
+const props = Astro.props;
+---
+
+<ProjectDetailsPage {...props} />
