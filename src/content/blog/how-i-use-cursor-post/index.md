@@ -3,6 +3,7 @@ title: "how I use cursor as my daily coding partner"
 description: "how cursor fits in my daily workflow as a developer."
 date: "Nov 12 2025"
 draft: false
+image: "/blog-images/cursor.png"
 ---
 
 In the last few years, I’ve tried many coding AI tools like Copilot, but none of them have worked for as long as Cursor. For the first time, I’ve been feeling that AI is truly helping me build things faster and reduce the steps between ideas and code.
