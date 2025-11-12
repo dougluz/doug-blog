@@ -74,6 +74,7 @@ In these cases, you can use the **Checkpoints** feature by scrolling through the
 In my daily use, I find this really helpful when a prompt is missing a small requirement or detail that can help the agent generate a better output.
 
 ![Using checkpoints in Cursor](./images/checkpoint-resize.gif)
+
 ---
 
 ## **Conclusion**
