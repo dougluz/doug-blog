@@ -14,12 +14,27 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  locale?: "en" | "pt-BR";
+  alternateUrls?: {
+    en: string;
+    "pt-BR": string;
+  };
+  redirectToPortuguese?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/nano.png" } = Astro.props;
+const {
+  title,
+  description,
+  image = "/nano.png",
+  locale = "en",
+  alternateUrls,
+  redirectToPortuguese,
+} = Astro.props;
 const imageURL = new URL(image, Astro.site);
+const openGraphLocale = locale === "pt-BR" ? "pt_BR" : "en_US";
+const alternateOpenGraphLocale = locale === "pt-BR" ? "en_US" : "pt_BR";
 ---
 
 <!-- Global Metadata -->
@@ -37,6 +52,15 @@ const imageURL = new URL(image, Astro.site);
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+{
+  alternateUrls && (
+    <>
+      <link rel="alternate" hreflang="en" href={new URL(alternateUrls.en, Astro.site)} />
+      <link rel="alternate" hreflang="pt-BR" href={new URL(alternateUrls["pt-BR"], Astro.site)} />
+      <link rel="alternate" hreflang="x-default" href={new URL(alternateUrls.en, Astro.site)} />
+    </>
+  )
+}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -49,6 +73,8 @@ const imageURL = new URL(image, Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
+<meta property="og:locale" content={openGraphLocale} />
+{alternateUrls && <meta property="og:locale:alternate" content={alternateOpenGraphLocale} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -56,6 +82,18 @@ const imageURL = new URL(image, Astro.site);
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imageURL} />
+
+{
+  redirectToPortuguese && (
+    <script is:inline define:vars={{ redirectToPortuguese }}>
+      if (new URLSearchParams(window.location.search).get("lang") === "pt-BR") {
+        window.location.replace(
+          new URL(redirectToPortuguese, window.location.origin).href
+        );
+      }
+    </script>
+  )
+}
 
 <ViewTransitions  />
 

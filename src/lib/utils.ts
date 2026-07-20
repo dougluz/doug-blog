@@ -13,11 +13,13 @@ export function formatDate(date: Date) {
   }).format(date);
 }
 
-export function readingTime(html: string) {
+export function readingTime(html: string, locale: "en" | "pt-BR" = "en") {
   const textOnly = html.replace(/<[^>]+>/g, "");
   const wordCount = textOnly.split(/\s+/).length;
   const readingTimeMinutes = ((wordCount / 200) + 1).toFixed();
-  return `${readingTimeMinutes} min read`;
+  return locale === "pt-BR"
+    ? `${readingTimeMinutes} min de leitura`
+    : `${readingTimeMinutes} min read`;
 }
 
 export function dateRange(startDate: Date, endDate?: Date | string): string {
