@@ -1,0 +1,19 @@
+---
+type Props = {
+  href: string;
+  locale: "en" | "pt-BR";
+  label: string;
+};
+
+const { href, locale, label } = Astro.props;
+---
+
+<a
+  href={href}
+  hreflang={locale}
+  lang={locale}
+  rel="alternate"
+  class="w-fit rounded border border-black/15 px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white"
+>
+  {label}
+</a>
