@@ -1,22 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <radialGradient id="richFlowerGlow" cx="50%" cy="50%" r="54%" fx="50%" fy="50%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="35%" style="stop-color:#fdb813;stop-opacity:1" />
-       <stop offset="75%" style="stop-color:#ff8c00;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d35400;stop-opacity:1" />
-    </radialGradient>
-    
-    <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
-    </filter>
-  </defs>
-  
-  <path d="M32,4 C 37,12 46,14 53,19 C 60,24 56,33 59,41 C 62,49 50,53 45,59 C 40,65 29,57 20,59 C 11,61 9,49 5,41 C 1,33 11,25 12,16 C 13,7 27,12 32,4 Z" 
-        fill="#d35400" opacity="0.3" filter="url(#softGlow)" />
-
-  <path d="M32,4 C 37,12 46,14 53,19 C 60,24 56,33 59,41 C 62,49 50,53 45,59 C 40,65 29,57 20,59 C 11,61 9,49 5,41 C 1,33 11,25 12,16 C 13,7 27,12 32,4 Z" 
-        fill="url(#richFlowerGlow)" />
-        
-  <circle cx="32" cy="31" r="5" fill="#ffffff" opacity="0.4" />
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <style>
+    /* Dark ground by default; the mark sits on the page itself in light mode. */
+    .ground { fill: #0F1209; }
+    @media (prefers-color-scheme: light) { .ground { fill: none; } }
+  </style>
+  <defs><radialGradient id="luz-glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#F6C45A" stop-opacity="0.75"></stop><stop offset="0.4" stop-color="#F6C45A" stop-opacity="0.45"></stop><stop offset="0.7" stop-color="#F6C45A" stop-opacity="0.16"></stop><stop offset="1" stop-color="#F6C45A" stop-opacity="0"></stop>
+  </radialGradient>
+  <linearGradient id="t0" gradientUnits="userSpaceOnUse" x1="18" y1="12" x2="7" y2="21">
+    <stop offset="0" stop-color="#F8CD63"></stop><stop offset="0.35" stop-color="#C9AE5B"></stop><stop offset="0.7" stop-color="#5E6B4E"></stop><stop offset="1" stop-color="#4E5A46"></stop>
+  </linearGradient>
+  <linearGradient id="t1" gradientUnits="userSpaceOnUse" x1="18" y1="12" x2="26" y2="24">
+    <stop offset="0" stop-color="#F8CD63"></stop><stop offset="0.35" stop-color="#C9AE5B"></stop><stop offset="0.7" stop-color="#5E6B4E"></stop><stop offset="1" stop-color="#4E5A46"></stop>
+  </linearGradient></defs>
+  <rect class="ground" width="32" height="32"></rect>
+  <path d="M 6.86 21.88 L 8.19 22.27 L 9.52 22.63 L 10.86 22.96 L 12.21 23.26 L 13.56 23.51 L 14.92 23.72 L 16.28 23.89 L 17.65 24.03 L 19.02 24.14 L 20.4 24.23 L 21.78 24.31 L 23.16 24.38 L 24.54 24.45 L 25.92 24.53 L 26.08 23.47 L 24.7 23.43 L 23.32 23.36 L 21.94 23.27 L 20.57 23.14 L 19.21 22.96 L 17.85 22.75 L 16.5 22.49 L 15.16 22.2 L 13.82 21.88 L 12.48 21.54 L 11.14 21.18 L 9.81 20.83 L 8.47 20.47 L 7.14 20.12 Z" fill="#4E5A46"></path>
+  <path d="M 17.02 10.8 L 16.19 11.39 L 15.38 12 L 14.58 12.63 L 13.8 13.28 L 13.04 13.96 L 12.3 14.65 L 11.57 15.36 L 10.85 16.08 L 10.13 16.81 L 9.42 17.55 L 8.72 18.29 L 8.02 19.04 L 7.32 19.78 L 6.62 20.54 L 7.38 21.46 L 8.1 20.74 L 8.82 20.02 L 9.56 19.32 L 10.32 18.64 L 11.1 17.99 L 11.9 17.37 L 12.73 16.79 L 13.59 16.23 L 14.47 15.7 L 15.37 15.19 L 16.27 14.69 L 17.18 14.2 L 18.08 13.71 L 18.98 13.2 Z" fill="url(#t0)"></path>
+  <path d="M 17 12.67 L 17.74 13.41 L 18.47 14.16 L 19.18 14.93 L 19.87 15.71 L 20.53 16.51 L 21.15 17.33 L 21.75 18.17 L 22.32 19.03 L 22.86 19.9 L 23.4 20.78 L 23.92 21.67 L 24.45 22.56 L 24.98 23.44 L 25.52 24.32 L 26.48 23.68 L 26.06 22.72 L 25.63 21.77 L 25.17 20.84 L 24.68 19.92 L 24.17 19.03 L 23.64 18.15 L 23.08 17.28 L 22.52 16.42 L 21.94 15.57 L 21.35 14.72 L 20.76 13.87 L 20.18 13.03 L 19.59 12.18 L 19 11.33 Z" fill="url(#t1)"></path>
+  <circle cx="7" cy="21" r="2.8" fill="#7E8F70"></circle>
+  <circle cx="26" cy="24" r="2.1" fill="#7E8F70"></circle>
+  <circle cx="18" cy="12" r="9" fill="url(#luz-glow)"></circle>
+  <circle cx="18" cy="12" r="3.3" fill="#F8CD63"></circle>
+  <circle cx="18" cy="12" r="1.5" fill="#FFFBEF"></circle>
 </svg>

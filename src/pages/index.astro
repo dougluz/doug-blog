@@ -7,9 +7,10 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
+import { getBlogContent, published } from "@lib/blog";
 
-const blog = (await getCollection("blog"))
-  .filter((post) => !post.data.draft)
+const { englishPosts } = await getBlogContent();
+const blog = published(englishPosts)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
 

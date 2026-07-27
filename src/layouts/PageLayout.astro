@@ -8,15 +8,35 @@ type Props = {
   title: string;
   description: string;
   image?: string;
+  locale?: "en" | "pt-BR";
+  alternateUrls?: {
+    en: string;
+    "pt-BR": string;
+  };
+  redirectToPortuguese?: string;
 };
 
-const { title, description, image } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  locale = "en",
+  alternateUrls,
+  redirectToPortuguese,
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
-    <Head title={`${title} | ${SITE.NAME}`} description={description} image={image} />
+    <Head
+      title={`${title} | ${SITE.NAME}`}
+      description={description}
+      image={image}
+      locale={locale}
+      alternateUrls={alternateUrls}
+      redirectToPortuguese={redirectToPortuguese}
+    />
   </head>
   <body>
     <Header />
