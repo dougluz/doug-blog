@@ -59,15 +59,6 @@ article {
   }
 }
 
-.animate {
-  @apply translate-y-3 opacity-0;
-  @apply transition-all duration-700 ease-out;
-}
-
-.animate.show {
-  @apply translate-y-0 opacity-100;
-}
-
 html #back-to-top {
   @apply pointer-events-none opacity-0;
 }
@@ -79,7 +70,13 @@ html.scrolled #back-to-top {
 .wave-animate {
   display: inline-block;
   transform-origin: 70% 70%;
-  animation: wave 2s infinite;
+  animation: wave 2s 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-animate {
+    animation: none;
+  }
 }
 
 @keyframes wave {
