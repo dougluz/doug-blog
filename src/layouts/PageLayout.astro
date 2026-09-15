@@ -8,6 +8,7 @@ type Props = {
   title: string;
   description: string;
   image?: string;
+  titleTemplate?: boolean;
   locale?: "en" | "pt-BR";
   alternateUrls?: {
     en: string;
@@ -20,6 +21,7 @@ const {
   title,
   description,
   image,
+  titleTemplate = true,
   locale = "en",
   alternateUrls,
   redirectToPortuguese,
@@ -30,7 +32,7 @@ const {
 <html lang={locale}>
   <head>
     <Head
-      title={`${title} | ${SITE.NAME}`}
+      title={titleTemplate ? `${title} | ${SITE.NAME}` : title}
       description={description}
       image={image}
       locale={locale}
