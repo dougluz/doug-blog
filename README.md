@@ -64,30 +64,6 @@ Most updates do not require changing a component:
 
 Frontmatter schemas for every collection are defined in `src/content/config.ts`. Set `draft: true` on a blog post or project to keep it out of production pages.
 
-## Roadmap
-
-A roadmap is a living view of where a project is heading, not a promise or a fixed release schedule. It records the ideas that are useful enough to explore next while leaving room for the site to evolve with its content.
-
-### Now
-
-- [x] Publish bilingual articles with language-aware metadata
-- [x] Provide RSS and sitemap discovery
-- [x] Support light, dark, and system themes
-- [ ] Add the first detailed project case studies
-
-### Next
-
-- [ ] Expand Portuguese translations for existing and future posts
-- [ ] Add topics or tags for easier browsing
-- [ ] Improve previews for shared articles and projects
-- [ ] Continue accessibility and performance audits
-
-### Later
-
-- [ ] Add lightweight search as the archive grows
-- [ ] Explore a notes or reading-log section for shorter ideas
-- [ ] Localize more of the browsing experience beyond individual articles
-
 ## Acknowledgements
 
 The site started from [astro-nano](https://github.com/markhorn-dev/astro-nano) and has since been adapted into a personal portfolio and bilingual blog.
